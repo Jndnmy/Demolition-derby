@@ -18,13 +18,13 @@ namespace Double_D
             InitializeComponent();
         }
         private void Form1_Load_1(object sender, EventArgs e)
-        {
+        {//move to vehicle
             background = new Bitmap(this.Width, this.Height);
             coordinates = new PointF[] {
                 new PointF(this.Width / 2 - 20,this.Height / 2 - 20),      //tl          
                 new PointF(this.Width / 2 + 20,this.Height / 2 - 20),      //tr          
                 new PointF(this.Width / 2 + 20,this.Height / 2 + 20),      //br
-                new PointF(this.Width / 2 - 20,this.Height / 2  + 20),     //bl
+                new PointF(this.Width / 2 - 20,this.Height / 2  + 20),     //bl 
             }; 
             centre = new PointF(this.Width / 2, this.Height / 2);
             sG = Graphics.FromImage(background);           
@@ -38,10 +38,10 @@ namespace Double_D
 
         Graphics g;
         Graphics sG;       
-        Bitmap background;
-        Bitmap background2;
+        Bitmap background;        
         PointF[] coordinates;
         PointF centre;
+        bool up, down, left, right;
       
         private void T_Tick(object sender, EventArgs e)
         {
@@ -82,24 +82,24 @@ namespace Double_D
                  coordinates[i].X = (float)(centre.X + newX);
                  coordinates[i].Y = (float)(centre.Y - newY);
              }
-         }           
-        /*private void RotatePoints(double angleInDegrees)
+         }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            double angleInRadians = angleInDegrees * (Math.PI / 180);
-            double cosTheta = Math.Cos(angleInRadians);
-            double sinTheta = Math.Sin(angleInRadians);
-            for (int i = 0; i < coordinates.Length; i++)
-            {
-             coordinates[i].X =
-                           (float)
-                           (cosTheta * (coordinates[i].X - centre.X) -
-                           sinTheta * (coordinates[i].Y - centre.Y) + centre.X);
-             coordinates[i].Y =
-                            (float)
-                            (sinTheta * (coordinates[i].X - centre.X) +
-                            cosTheta * (coordinates[i].Y - centre.Y) + centre.Y);
-                };
-            }*/
+            if (e.KeyCode == Keys.W) { up = true; }
+            if (e.KeyCode == Keys.A) { left = true; }
+            if (e.KeyCode == Keys.S) { down = true; }
+            if (e.KeyCode == Keys.D) { right = true; }
+
         }
+
+        private void Form1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.W) { up = false; }
+            if (e.KeyCode == Keys.A) { left = false; }
+            if (e.KeyCode == Keys.S) { down = false; }
+            if (e.KeyCode == Keys.D) { right = false; }
+        }
+    }
 }
 
