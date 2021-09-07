@@ -20,13 +20,7 @@ namespace Double_D
         private void Form1_Load_1(object sender, EventArgs e)
         {//move to vehicle
             background = new Bitmap(this.Width, this.Height);
-            coordinates = new PointF[] {
-                new PointF(this.Width / 2 - 20,this.Height / 2 - 20),      //tl          
-                new PointF(this.Width / 2 + 20,this.Height / 2 - 20),      //tr          
-                new PointF(this.Width / 2 + 20,this.Height / 2 + 20),      //br
-                new PointF(this.Width / 2 - 20,this.Height / 2  + 20),     //bl 
-            }; 
-            centre = new PointF(this.Width / 2, this.Height / 2);
+            ourCar = new Vehicle(this.Width/2,this.Height/2);
             sG = Graphics.FromImage(background);           
             g = this.CreateGraphics();
             Timer t = new Timer();
@@ -38,51 +32,23 @@ namespace Double_D
 
         Graphics g;
         Graphics sG;       
-        Bitmap background;        
-        PointF[] coordinates;
-        PointF centre;
+        Bitmap background;
+        Vehicle ourCar;
         bool up, down, left, right;
       
         private void T_Tick(object sender, EventArgs e)
         {
+            if (up == true) { ourCar.move(-15); }
+            if (down == true) { ourCar.move(15); }
+            if (left == true) { ourCar.rotate(-15); }
+            if (right == true) { ourCar.rotate(15); }
             sG.Clear(Color.FromArgb(255, Color.White));
-            sG.FillPolygon(Brushes.Green, coordinates);            
+            sG.FillPolygon(Brushes.Green, ourCar.getCoords());            
             g.DrawImage(background, new Point(0, 0));
+            //ourCar.rotate(5);
 
-            RotatePoints(45);
-           
         }
-         public void RotatePoints(float angle)
-         {      
-
-             double radAngle, angleBeforeRotation, endAngle, modulus, newX, newY, X, Y;
-             radAngle = Math.PI * angle / 180;
-             for (int i = 0; i < coordinates.Length; i++)
-             {
-                 X = coordinates[i].X - centre.X;
-                 Y = coordinates[i].Y - centre.Y;
-                 if (X == 0)                
-                 {
-                     if (Y < 0)
-                         angleBeforeRotation = 2 * Math.PI; 
-                     else
-                         angleBeforeRotation = Math.PI;                    
-                 }
-                 else
-                 {
-                     if (X > 0)
-                         angleBeforeRotation = (Math.PI / 2) + Math.Atan(Y / X);
-                     else
-                         angleBeforeRotation = ((3 * Math.PI) / 2) + Math.Atan(Y / X);                   
-                 }
-                 endAngle = angleBeforeRotation + radAngle;
-                 modulus = Math.Sqrt(Math.Pow(X, 2) + Math.Pow(Y, 2));
-                 newX = (modulus * Math.Sin(endAngle));
-                 newY = (modulus * Math.Cos(endAngle));
-                 coordinates[i].X = (float)(centre.X + newX);
-                 coordinates[i].Y = (float)(centre.Y - newY);
-             }
-         }
+         
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
