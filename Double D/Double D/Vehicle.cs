@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Text;
 
 namespace Double_D
@@ -10,6 +11,7 @@ namespace Double_D
         private PointF[] coordinates;
         private PointF centre;
         private double direction; //radians
+        private Rectangle hitbox;
         //array of small square class (bits of vehicle)
         //move shit
 
@@ -24,10 +26,38 @@ namespace Double_D
                 new PointF(x - 20, y + 20),     //bl 
             };
             centre = new PointF(x, y);
+            hitbox = new Rectangle();
+            updateHitbox();
         }
         public void move(int velocity)//complicated equations go here
         {
             changeCoords(-Math.Sin(direction)*velocity,Math.Cos(direction)*velocity);
+        }
+        private void updateHitbox()
+        {
+            float leastX = 10000f;
+            float mostX = -10000f;
+            float leastY = 10000f;
+            float mostY = -10000f;
+            for (int i = 0; i < coordinates.Length; i++)
+            {
+                if (coordinates[i].X > mostX)
+                    mostX = coordinates[i].X;
+                if (coordinates[i].X < leastX)
+                    leastX = coordinates[i].X;
+                if (coordinates[i].Y > mostY)
+                    mostY = coordinates[i].Y;
+                if (coordinates[i].Y < leastY)
+                    leastY = coordinates[i].Y;
+            }
+            float differenceX = mostX - leastX;
+            float differenceY = mostY - leastY;           
+            hitbox.X = (int)leastX;
+            hitbox.Y = (int)leastY;
+            hitbox.Width = (int)differenceX;
+            hitbox.Height = (int)differenceY;
+            
+
         }
         private void changeCoords(double dx, double dy) //after all move logic is worked out, actually change the coordinates
         {
@@ -37,6 +67,7 @@ namespace Double_D
                 coordinates[i].Y += (float) dy;
             }
             updateCenter();
+            updateHitbox();
         }
         private void updateCenter()//reusable code
         {
@@ -84,10 +115,16 @@ namespace Double_D
                 coordinates[i].X = (float)(centre.X + newX);
                 coordinates[i].Y = (float)(centre.Y - newY);
             }
+            updateHitbox();
         }
         public PointF[] getCoords()
         {
             return coordinates;
         }
+        public Rectangle getHitbox()
+        {
+            return hitbox;
+        }
+
     }
 }

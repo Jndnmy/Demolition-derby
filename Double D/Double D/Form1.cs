@@ -43,12 +43,17 @@ namespace Double_D
             if (left == true) { ourCar.rotate(-15); }
             if (right == true) { ourCar.rotate(15); }
             sG.Clear(Color.FromArgb(255, Color.White));
-            sG.FillPolygon(Brushes.Green, ourCar.getCoords());            
+            sG.FillPolygon(Brushes.Green, ourCar.getCoords());
+            sG.DrawRectangle(Pens.Black, ourCar.getHitbox());
             g.DrawImage(background, new Point(0, 0));
             //ourCar.rotate(5);
 
         }
          
+        private bool checkColl(Rectangle rect1, Rectangle rect2)
+        {
+            return rect1.IntersectsWith(rect2);
+        }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
