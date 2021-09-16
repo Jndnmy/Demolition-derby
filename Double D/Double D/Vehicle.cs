@@ -7,9 +7,9 @@ using System.Text;
 namespace Double_D
 {
     class Vehicle
-    {        
+    {       
         protected PointF[] coordinates;
-        private Component[] components;
+        protected Component[] components;
         private PointF centre;
         private double direction; //radians
         private Rectangle hitbox;
@@ -26,11 +26,11 @@ namespace Double_D
         {
             direction = 0; //facing up;
             components = new Component[] {
-                new Component(x - 20, y - 20, id),      //tl          
-                new Component(x + 20, y - 20, id),      //tr          
-                new Component(x + 20, y + 20,id),      //br
-                new Component(x - 20, y + 20,id),     //bl 
-                new Component(x , y,id),
+                new Component(x - 20, y - 20, id, Brushes.Red),      //tl          
+                new Component(x + 20, y - 20, id, Brushes.Red),      //tr          
+                new Component(x + 20, y + 20,id, Brushes.Green),      //br
+                new Component(x - 20, y + 20,id, Brushes.Green),     //bl 
+                new Component(x , y,id, Brushes.Yellow),
             };
             coordinates = new PointF[] {
                 new PointF(x - 40, y - 40),      //tl          
@@ -45,6 +45,13 @@ namespace Double_D
         public void move(int velocity)//complicated equations go here
         {
             changeCoords(-Math.Sin(direction)*velocity,Math.Cos(direction)*velocity);
+            if (components != null)
+            {
+                for (int i = 0; i < components.Length; i++)
+                {
+                    components[i].move(velocity);
+                }
+            }
         }
         protected void updateHitbox()
         {
@@ -129,6 +136,13 @@ namespace Double_D
                 coordinates[i].Y = (float)(axis.Y - newY);
             }
             updateHitbox();
+            if (components != null)
+            {
+                for (int i = 0; i < components.Length; i++)
+                {
+                    components[i].rotate(angle, axis);
+                }
+            }
         }
         public PointF[] getCoords()
         {
@@ -145,6 +159,15 @@ namespace Double_D
         public PointF getCenter()
         {
             return centre;
-        } 
+        }
+        public void draw(Graphics sG)
+        {
+            for (int i = 0; i < components.Length; i++)
+            {
+                sG.FillPolygon(components[i].getColour(), components[i].getCoords());
+                sG.DrawRectangle(Pens.Black, components[i].getHitbox());
+            }
+            //return sG;
+        }
     }
 }

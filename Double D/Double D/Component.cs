@@ -6,9 +6,8 @@ namespace Double_D
 {
     class Component : Vehicle
     {
-
-
-        public Component(int x, int y, int parent) : base() //constructor
+        private Brush colour;
+        public Component(int x, int y, int parent, Brush colour) : base() //constructor
         {
             coordinates = new PointF[] {
                 new PointF(x - 20, y - 20),      //tl          
@@ -17,8 +16,13 @@ namespace Double_D
                 new PointF(x - 20, y + 20),     //bl 
             };
             id = parent;
+            this.colour = colour;
+            components = null;
         }
-
+        public Brush getColour()
+        {
+            return colour;
+        }
 
     }
 }

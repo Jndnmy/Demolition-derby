@@ -7,8 +7,4 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Include="Component.cs" />
-  </ItemGroup>
-
 </Project>
