@@ -20,7 +20,7 @@ namespace Double_D
         private void Form1_Load_1(object sender, EventArgs e)
         {//move to vehicle
             background = new Bitmap(this.Width, this.Height);
-            ourCar = new Vehicle(this.Width/2,this.Height/2);
+            ourCar = new Vehicle(this.Width/2,this.Height/2,0);
             sG = Graphics.FromImage(background);           
             g = this.CreateGraphics();
             Timer t = new Timer();
@@ -38,13 +38,39 @@ namespace Double_D
       
         private void T_Tick(object sender, EventArgs e)
         {
-            if (up == true) { ourCar.move(-15); }
-            if (down == true) { ourCar.move(15); }
-            if (left == true) { ourCar.rotate(-15); }
-            if (right == true) { ourCar.rotate(15); }
+            if (up == true) {
+                ourCar.move(-15);
+                for (int i = 0; i < ourCar.getComponents().Length - 2; i++) { 
+                    ourCar.getComponents()[i].move(-15); }}
+            if (down == true) {
+                ourCar.move(15);
+                for (int i = 0; i < ourCar.getComponents().Length - 2; i++)
+                {
+                    ourCar.getComponents()[i].move(15);
+                }
+            }
+            if (left == true)
+            {
+                ourCar.rotate(-15, ourCar.getCenter());
+                for (int i = 0; i < ourCar.getComponents().Length - 2; i++)
+                {
+                    ourCar.getComponents()[i].rotate(-15,ourCar.getCenter());
+                }
+            }
+            if (right == true)
+            {
+                ourCar.rotate(15, ourCar.getCenter());
+                for (int i = 0; i < ourCar.getComponents().Length - 2; i++)
+                {
+                    ourCar.getComponents()[i].rotate(15, ourCar.getCenter());
+                } }
             sG.Clear(Color.FromArgb(255, Color.White));
-            sG.FillPolygon(Brushes.Green, ourCar.getCoords());
-            sG.DrawRectangle(Pens.Black, ourCar.getHitbox());
+            for (int i = 0; i < ourCar.getComponents().Length-2; i++)
+            {
+               sG.FillPolygon(Brushes.Green, ourCar.getComponents()[i].getCoords());
+                sG.DrawRectangle(Pens.Black, ourCar.getComponents()[i].getHitbox());
+              
+            }
             g.DrawImage(background, new Point(0, 0));
             //ourCar.rotate(5);
 

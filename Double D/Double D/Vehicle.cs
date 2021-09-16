@@ -8,23 +8,36 @@ namespace Double_D
 {
     class Vehicle
     {        
-        private PointF[] coordinates;
+        protected PointF[] coordinates;
+        private Component[] components;
         private PointF centre;
         private double direction; //radians
         private Rectangle hitbox;
+        protected int id;
         //array of small square class (bits of vehicle)
         //move shit
 
         //step 1- when key is held move or rotate by set degrees.
-        public Vehicle(int x, int y) //constructor
+        public Vehicle()
+        {
+
+        }
+        public Vehicle(int x, int y,int id) //constructor
         {
             direction = 0; //facing up;
-            coordinates = new PointF[] {
-                new PointF(x - 20, y - 20),      //tl          
-                new PointF(x + 20, y - 20),      //tr          
-                new PointF(x + 20, y + 20),      //br
-                new PointF(x - 20, y + 20),     //bl 
+            components = new Component[] {
+                new Component(x - 20, y - 20, id),      //tl          
+                new Component(x + 20, y - 20, id),      //tr          
+                new Component(x + 20, y + 20,id),      //br
+                new Component(x - 20, y + 20,id),     //bl 
+                new Component(x , y,id),
             };
+            coordinates = new PointF[] {
+                new PointF(x - 40, y - 40),      //tl          
+                new PointF(x + 40, y - 40),      //tr          
+                new PointF(x + 40, y + 40),      //br
+                new PointF(x - 40, y + 40),     //bl
+                                                };
             centre = new PointF(x, y);
             hitbox = new Rectangle();
             updateHitbox();
@@ -33,7 +46,7 @@ namespace Double_D
         {
             changeCoords(-Math.Sin(direction)*velocity,Math.Cos(direction)*velocity);
         }
-        private void updateHitbox()
+        protected void updateHitbox()
         {
             float leastX = 10000f;
             float mostX = -10000f;
@@ -80,7 +93,7 @@ namespace Double_D
             centre.X = sumX / coordinates.Length;
             centre.Y = sumY / coordinates.Length;
         }
-        public void rotate(float angle)
+        public void rotate(float angle, PointF axis)
         {
             double radAngle, angleBeforeRotation, endAngle, modulus, newX, newY, X, Y;
             radAngle = Math.PI * angle / 180;
@@ -91,8 +104,8 @@ namespace Double_D
             }
             for (int i = 0; i < coordinates.Length; i++)
             {
-                X = coordinates[i].X - centre.X;
-                Y = coordinates[i].Y - centre.Y;
+                X = coordinates[i].X - axis.X;
+                Y = coordinates[i].Y - axis.Y;
                 if (X == 0)
                 {
                     if (Y < 0)
@@ -112,8 +125,8 @@ namespace Double_D
                 modulus = Math.Sqrt(Math.Pow(X, 2) + Math.Pow(Y, 2));
                 newX = (modulus * Math.Sin(endAngle));
                 newY = (modulus * Math.Cos(endAngle));
-                coordinates[i].X = (float)(centre.X + newX);
-                coordinates[i].Y = (float)(centre.Y - newY);
+                coordinates[i].X = (float)(axis.X + newX);
+                coordinates[i].Y = (float)(axis.Y - newY);
             }
             updateHitbox();
         }
@@ -121,10 +134,17 @@ namespace Double_D
         {
             return coordinates;
         }
+        public Component[] getComponents()
+        {
+            return components;
+        }
         public Rectangle getHitbox()
         {
             return hitbox;
         }
-
+        public PointF getCenter()
+        {
+            return centre;
+        } 
     }
 }

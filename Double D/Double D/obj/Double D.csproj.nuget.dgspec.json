@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kacper\\source\\repos\\Double D\\Double D\\Double D\\Double D.csproj": {}
+    "C:\\Users\\Jason\\source\\repos\\Double%20D\\Double D\\Double D\\Double D.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kacper\\source\\repos\\Double D\\Double D\\Double D\\Double D.csproj": {
+    "C:\\Users\\Jason\\source\\repos\\Double%20D\\Double D\\Double D\\Double D.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kacper\\source\\repos\\Double D\\Double D\\Double D\\Double D.csproj",
+        "projectUniqueName": "C:\\Users\\Jason\\source\\repos\\Double%20D\\Double D\\Double D\\Double D.csproj",
         "projectName": "Double D",
-        "projectPath": "C:\\Users\\Kacper\\source\\repos\\Double D\\Double D\\Double D\\Double D.csproj",
-        "packagesPath": "C:\\Users\\Kacper\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kacper\\source\\repos\\Double D\\Double D\\Double D\\obj\\",
+        "projectPath": "C:\\Users\\Jason\\source\\repos\\Double%20D\\Double D\\Double D\\Double D.csproj",
+        "packagesPath": "C:\\Users\\Jason\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jason\\source\\repos\\Double%20D\\Double D\\Double D\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Kacper\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jason\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -61,7 +62,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
