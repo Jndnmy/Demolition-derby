@@ -43,9 +43,9 @@ namespace Double_D
             if (down == true)
                 ourCar.move(15);
             if (left == true)
-                ourCar.rotate(-15, ourCar.getCenter());                
+                ourCar.rotate(-10, ourCar.getCenter());                
             if (right == true)
-                ourCar.rotate(15, ourCar.getCenter());
+                ourCar.rotate(10, ourCar.getCenter());
                     
             sG.Clear(Color.FromArgb(255, Color.White));
             ourCar.draw(sG);

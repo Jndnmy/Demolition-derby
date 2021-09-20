@@ -8,12 +8,18 @@ namespace Double_D
 {
     class Vehicle
     {       
+        /*remodel
+        have a speed
+        each tick, 'move', using friction to slow down the car
+        if w or s is pressed, acc or decc(braking)
+        */
         protected PointF[] coordinates;
         protected Component[] components;
         private PointF centre;
         private double direction; //radians
         private Rectangle hitbox;
         protected int id;
+        protected float speed;
         //array of small square class (bits of vehicle)
         //move shit
 
