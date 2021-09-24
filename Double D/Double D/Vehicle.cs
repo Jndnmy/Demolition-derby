@@ -20,6 +20,8 @@ namespace Double_D
         private Rectangle hitbox;
         protected int id;
         protected float speed;
+        protected float maxSpeed;
+        protected float accRate;
         //array of small square class (bits of vehicle)
         //move shit
 
@@ -30,6 +32,8 @@ namespace Double_D
         }
         public Vehicle(int x, int y,int id) //constructor
         {
+            maxSpeed = 20;
+            accRate = 0.15F;
             direction = 0; //facing up;
             components = new Component[] {
                 new Component(x - 20, y - 20, id, Brushes.Red),      //tl          
@@ -48,17 +52,30 @@ namespace Double_D
             hitbox = new Rectangle();
             updateHitbox();
         }
-        public void move(int velocity)//complicated equations go here
+        public void move()//complicated equations go here
         {
-            changeCoords(-Math.Sin(direction)*velocity,Math.Cos(direction)*velocity);
+            changeCoords(-Math.Sin(direction)*speed,Math.Cos(direction)*speed);
             if (components != null)
             {
                 for (int i = 0; i < components.Length; i++)
                 {
-                    components[i].move(velocity);
+                    components[i].changeCoords(-Math.Sin(direction) * speed, Math.Cos(direction) * speed);
                 }
             }
         }
+
+        public void accelerate(int forwOrBack)//forward or backwards
+        {
+            if ((speed >= 0 && (speed < maxSpeed || forwOrBack == Form1.forward) ) || (speed < 0 && (speed >= maxSpeed * -1 || forwOrBack == Form1.backward)  ))                
+                speed += (accRate + (accRate * Math.Abs(speed)))* forwOrBack;
+                
+                
+        }
+        public void decelerate()
+        {                       
+            speed -=  speed * accRate;
+        }
+
         protected void updateHitbox()
         {
             float leastX = 10000f;

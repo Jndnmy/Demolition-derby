@@ -9,10 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 
+
 namespace Double_D
-{
+{     
     public partial class Form1 : Form
     {
+        public static int forward = -1;
+        public static int backward = 1;
         public Form1()
         {
             InitializeComponent();
@@ -39,17 +42,21 @@ namespace Double_D
         private void T_Tick(object sender, EventArgs e)
         {
             if (up == true)
-                ourCar.move(-15);
+                ourCar.accelerate(forward); //int equal to -1 or 1
             if (down == true)
-                ourCar.move(15);
+                ourCar.accelerate(backward);
             if (left == true)
                 ourCar.rotate(-10, ourCar.getCenter());                
             if (right == true)
                 ourCar.rotate(10, ourCar.getCenter());
-                    
+            if (up == false && down == false)
+            {
+                ourCar.decelerate();
+            }
+            ourCar.move();
             sG.Clear(Color.FromArgb(255, Color.White));
             ourCar.draw(sG);
-
+            
             //sG.DrawRectangle(Pens.Black, ourCar.getHitbox());
             g.DrawImage(background, new Point(0, 0));
                 //ourCar.rotate(5);
