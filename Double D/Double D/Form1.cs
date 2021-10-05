@@ -46,9 +46,9 @@ namespace Double_D
             if (down == true)
                 ourCar.accelerate(backward);
             if (left == true)
-                ourCar.rotate(-10, ourCar.getCenter());                
+                ourCar.turn(-10, ourCar.getCenter());                
             if (right == true)
-                ourCar.rotate(10, ourCar.getCenter());
+                ourCar.turn(10, ourCar.getCenter());
             if (up == false && down == false)
             {
                 ourCar.decelerate();

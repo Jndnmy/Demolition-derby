@@ -12,7 +12,6 @@ C:\Users\Kacper\source\repos\Double D\Double D\Double D\obj\Debug\netcoreapp3.1\
 C:\Users\Kacper\source\repos\Double D\Double D\Double D\obj\Debug\netcoreapp3.1\Double D.dll
 C:\Users\Kacper\source\repos\Double D\Double D\Double D\obj\Debug\netcoreapp3.1\Double D.pdb
 C:\Users\Kacper\source\repos\Double D\Double D\Double D\obj\Debug\netcoreapp3.1\Double D.genruntimeconfig.cache
-C:\Users\Kacper\source\repos\Double D\Double D\Double D\obj\Debug\netcoreapp3.1\Double D.csprojAssemblyReference.cache
 C:\Users\Jason\source\repos\Double%20D\Double D\Double D\bin\Debug\netcoreapp3.1\Double D.exe
 C:\Users\Jason\source\repos\Double%20D\Double D\Double D\bin\Debug\netcoreapp3.1\Double D.deps.json
 C:\Users\Jason\source\repos\Double%20D\Double D\Double D\bin\Debug\netcoreapp3.1\Double D.runtimeconfig.json
@@ -29,3 +28,4 @@ C:\Users\Jason\source\repos\Double%20D\Double D\Double D\obj\Debug\netcoreapp3.1
 C:\Users\Jason\source\repos\Double%20D\Double D\Double D\obj\Debug\netcoreapp3.1\Double D.dll
 C:\Users\Jason\source\repos\Double%20D\Double D\Double D\obj\Debug\netcoreapp3.1\Double D.pdb
 C:\Users\Jason\source\repos\Double%20D\Double D\Double D\obj\Debug\netcoreapp3.1\Double D.genruntimeconfig.cache
+C:\Users\Kacper\source\repos\Double D\Double D\Double D\obj\Debug\netcoreapp3.1\Double D.csprojAssemblyReference.cache

@@ -72,8 +72,13 @@ namespace Double_D
                 
         }
         public void decelerate()
-        {                       
-            speed -=  speed * accRate;
+        {
+            if (Math.Abs(speed) < 0.1)
+                speed = 0;
+            else
+                speed -=  speed * accRate * 0.1F;
+           
+               
         }
 
         protected void updateHitbox()
@@ -123,10 +128,31 @@ namespace Double_D
             centre.X = sumX / coordinates.Length;
             centre.Y = sumY / coordinates.Length;
         }
-        public void rotate(float angle, PointF axis)
+        
+        public void turn(float angle, PointF axis)
+        {
+            double speedClone = speed * -1;
+            double originalAngle = direction * (180 / Math.PI);
+            double radAngle = originalAngle + angle;
+            radAngle = radAngle * (Math.PI / 180);
+            double magnitude = Math.Pow(speedClone,2) * 0.1;
+
+            //speed = (float)Math.Sqrt(Math.Pow((speed * Math.Cos(direction) + magnitude * Math.Cos(radAngle)),2)+Math.Pow((speed * Math.Sin(direction)+ magnitude * Math.Sin(radAngle)),2));
+            double Y = (speedClone * Math.Sin(direction) + magnitude * Math.Sin(radAngle));
+            double X = (speedClone * Math.Cos(direction) + magnitude * Math.Cos(radAngle));
+
+            double angle2 = Math.Atan2(Y,X);
+            //angle2 = (float)(angle2 + Math.PI);
+            if (Double.IsNaN(angle2) || speedClone == 0 )
+                return; //no rotation to be done
+            else
+                rotate(angle2 - direction, axis);
+        }
+        public void rotate(double angle, PointF axis)
         {
             double radAngle, angleBeforeRotation, endAngle, modulus, newX, newY, X, Y;
-            radAngle = Math.PI * angle / 180;
+            //radAngle = Math.PI * angle / 180;
+            radAngle = angle;
             direction += radAngle;
             if (direction < 0)
             {
