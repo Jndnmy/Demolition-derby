@@ -52,9 +52,9 @@ namespace Double_D
             if (down == true)
                 controller[0].Vehicle.accelerate(backward);
             if (left == true)
-                ourCar.turn(-10, ourCar.getCenter());                
+                controller[0].Vehicle.turn(-10, controller[0].Vehicle.getCenter());                
             if (right == true)
-                ourCar.turn(10, ourCar.getCenter());
+                controller[0].Vehicle.turn(10, controller[0].Vehicle.getCenter());
             if (up == false && down == false)
             {
                 controller[0].Vehicle.decelerate();
