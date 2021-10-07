@@ -29,19 +29,3 @@ C:\Users\Jason\source\repos\DoubleD\Double D\Double D\obj\Debug\netcoreapp3.1\Do
 C:\Users\Jason\source\repos\DoubleD\Double D\Double D\obj\Debug\netcoreapp3.1\Double D.dll
 C:\Users\Jason\source\repos\DoubleD\Double D\Double D\obj\Debug\netcoreapp3.1\Double D.pdb
 C:\Users\Jason\source\repos\DoubleD\Double D\Double D\obj\Debug\netcoreapp3.1\Double D.genruntimeconfig.cache
-C:\Users\Jason\source\repos\DoubleD\Double D\bin\Debug\netcoreapp3.1\Double D.exe
-C:\Users\Jason\source\repos\DoubleD\Double D\bin\Debug\netcoreapp3.1\Double D.deps.json
-C:\Users\Jason\source\repos\DoubleD\Double D\bin\Debug\netcoreapp3.1\Double D.runtimeconfig.json
-C:\Users\Jason\source\repos\DoubleD\Double D\bin\Debug\netcoreapp3.1\Double D.runtimeconfig.dev.json
-C:\Users\Jason\source\repos\DoubleD\Double D\bin\Debug\netcoreapp3.1\Double D.dll
-C:\Users\Jason\source\repos\DoubleD\Double D\bin\Debug\netcoreapp3.1\Double D.pdb
-C:\Users\Jason\source\repos\DoubleD\Double D\obj\Debug\netcoreapp3.1\Double D.csproj.AssemblyReference.cache
-C:\Users\Jason\source\repos\DoubleD\Double D\obj\Debug\netcoreapp3.1\Double_D.Form1.resources
-C:\Users\Jason\source\repos\DoubleD\Double D\obj\Debug\netcoreapp3.1\Double D.csproj.GenerateResource.cache
-C:\Users\Jason\source\repos\DoubleD\Double D\obj\Debug\netcoreapp3.1\Double D.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Jason\source\repos\DoubleD\Double D\obj\Debug\netcoreapp3.1\Double D.AssemblyInfoInputs.cache
-C:\Users\Jason\source\repos\DoubleD\Double D\obj\Debug\netcoreapp3.1\Double D.AssemblyInfo.cs
-C:\Users\Jason\source\repos\DoubleD\Double D\obj\Debug\netcoreapp3.1\Double D.csproj.CoreCompileInputs.cache
-C:\Users\Jason\source\repos\DoubleD\Double D\obj\Debug\netcoreapp3.1\Double D.dll
-C:\Users\Jason\source\repos\DoubleD\Double D\obj\Debug\netcoreapp3.1\Double D.pdb
-C:\Users\Jason\source\repos\DoubleD\Double D\obj\Debug\netcoreapp3.1\Double D.genruntimeconfig.cache
