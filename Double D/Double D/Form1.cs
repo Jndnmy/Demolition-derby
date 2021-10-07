@@ -24,11 +24,11 @@ namespace Double_D
         {//move to vehicle
             background = new Bitmap(this.Width, this.Height);
              
-            ourCar = new Vehicle(this.Width / 2, this.Height / 2, 0);
+            newCar = new Vehicle(this.Width / 2, this.Height / 2, 0);
 
-// controller.Add(new Controller(newCar, "Player", 0));
-            ourCar = new Vehicle(this.Width / 4, this.Height / 4, 0);
-//controller.Add(new Controller(newCar, "Violent", 1));
+            controller.Add(new Controller(newCar, "Player", 0));
+            newCar = new Vehicle(this.Width / 4, this.Height / 4, 0);
+            controller.Add(new Controller(newCar, "Violent", 1));
             sG = Graphics.FromImage(background);
             g = this.CreateGraphics();
             Timer t = new Timer();
@@ -41,31 +41,31 @@ namespace Double_D
         Graphics g;
         Graphics sG;
         Bitmap background;
-        Vehicle ourCar;
+        Vehicle newCar;
         List<Controller> controller = new List<Controller>();
         bool up, down, left, right;
 
         private void T_Tick(object sender, EventArgs e)
         {
             if (up == true)
-                ourCar.accelerate(forward); //int equal to -1 or 1
+                controller[0].Vehicle.accelerate(forward); //int equal to -1 or 1
             if (down == true)
-                ourCar.accelerate(backward);
+                controller[0].Vehicle.accelerate(backward);
             if (left == true)
                 ourCar.turn(-10, ourCar.getCenter());                
             if (right == true)
                 ourCar.turn(10, ourCar.getCenter());
             if (up == false && down == false)
             {
-                ourCar.decelerate();
+                controller[0].Vehicle.decelerate();
             }
-            ourCar.move();
+            controller[0].Vehicle.move();
             sG.Clear(Color.FromArgb(255, Color.White));
-            ourCar.draw(sG);//Iterate through controller
-// ourCar.Vehicle.draw(sG);
+            controller[0].Vehicle.draw(sG);//Iterate through controller
+            controller[1].Vehicle.draw(sG);
 
-            //sG.DrawRectangle(Pens.Black, ourCar.getHitbox());
-            g.DrawImage(background, new Point(0, 0));
+           //sG.DrawRectangle(Pens.Black, ourCar.getHitbox());
+           g.DrawImage(background, new Point(0, 0));
                 //ourCar.rotate(5);
 
         }
