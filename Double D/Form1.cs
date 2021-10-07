@@ -59,6 +59,8 @@ namespace Double_D
                 controller[0].Vehicle.decelerate();
             }
             controller[0].Vehicle.move();
+            controller[1].Move(controller);
+            controller[1].Vehicle.move();
             sG.Clear(Color.FromArgb(255, Color.White));
             controller[0].Vehicle.draw(sG);//Iterate through controller
             controller[1].Vehicle.draw(sG);

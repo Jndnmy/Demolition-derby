@@ -38,7 +38,7 @@ namespace Double_D
         public void Move ( List<Controller> targets)
         {
             double facing = vehicle.getDirection();
-            if (facing > 1.5 * Math.PI)// facing top left
+            if (facing >= 0 * Math.PI)// facing top left (should be 1.5
             {
                 if (targets[target].vehicle.getCenter().X > vehicle.getCenter().X & targets[target].vehicle.getCenter().Y > Vehicle.getCenter().Y)// target bottom right
                 {
