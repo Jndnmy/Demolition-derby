@@ -38,11 +38,43 @@ namespace Double_D
         public void Move ( List<Controller> targets)
         {
             double facing = vehicle.getDirection();
-            if (facing >= 0 * Math.PI)// facing top left (should be 1.5
+            if (facing >= 1.5 * Math.PI)// facing top left 
             {
                 if (targets[target].vehicle.getCenter().X > vehicle.getCenter().X & targets[target].vehicle.getCenter().Y > Vehicle.getCenter().Y)// target bottom right
                 {
                     if (facing > 1.75 * Math.PI)
+                    {
+                        Forward();// add a new method to check if should accelerate
+                        Turnright();
+
+                    }
+                    else
+                    {
+                        Forward();
+                        Turnleft();
+                    }
+                }
+                else if (targets[target].vehicle.getCenter().X > vehicle.getCenter().X & targets[target].vehicle.getCenter().Y < Vehicle.getCenter().Y)
+                {
+                    Forward();
+                    Turnright();
+                }
+                else if (targets[target].vehicle.getCenter().X < vehicle.getCenter().X & targets[target].vehicle.getCenter().Y > Vehicle.getCenter().Y)
+                {
+                    Forward();
+                    Turnleft();
+                }
+                else
+                {
+                    // probably divide into 3
+                    Forward();
+                }
+            }
+            else if (facing >= Math.PI)// facing top left (should be 1.5
+            {
+                if (targets[target].vehicle.getCenter().X > vehicle.getCenter().X & targets[target].vehicle.getCenter().Y < Vehicle.getCenter().Y)// target bottom right
+                {
+                    if (facing > 1.25 * Math.PI)
                     {
                         Forward();
                         Turnright();
@@ -54,7 +86,85 @@ namespace Double_D
                         Turnleft();
                     }
                 }
-              //  else if (targets[target].vehicle.getCenter().X > vehicle.getCenter().X & targets[target].vehicle.getCenter().Y > Vehicle.getCenter().Y) // target
+                else if (targets[target].vehicle.getCenter().X < vehicle.getCenter().X & targets[target].vehicle.getCenter().Y < Vehicle.getCenter().Y)
+                {
+                    Forward();
+                    Turnright();
+                }
+                else if (targets[target].vehicle.getCenter().X > vehicle.getCenter().X & targets[target].vehicle.getCenter().Y > Vehicle.getCenter().Y)
+                {
+                    Forward();
+                    Turnleft();
+                }
+                else
+                {
+                    // probably divide into 3
+                    Forward();
+                }
+            }
+            else if (facing >= 0.5 * Math.PI)// facing top left (should be 1.5
+            {
+                if (targets[target].vehicle.getCenter().X < vehicle.getCenter().X & targets[target].vehicle.getCenter().Y < Vehicle.getCenter().Y)// target bottom right
+                {
+                    if (facing > 0.75 * Math.PI)
+                    {
+                        Forward();
+                        Turnright();
+
+                    }
+                    else
+                    {
+                        Forward();
+                        Turnleft();
+                    }
+                }
+                else if (targets[target].vehicle.getCenter().X < vehicle.getCenter().X & targets[target].vehicle.getCenter().Y > Vehicle.getCenter().Y)
+                {
+                    Forward();
+                    Turnright();
+                }
+                else if (targets[target].vehicle.getCenter().X > vehicle.getCenter().X & targets[target].vehicle.getCenter().Y < Vehicle.getCenter().Y)
+                {
+                    Forward();
+                    Turnleft();
+                }
+                else
+                {
+                    // probably divide into 3
+                    Forward();
+                }
+            }
+            else if (facing >= 0 * Math.PI)
+            {
+                if (targets[target].vehicle.getCenter().X < vehicle.getCenter().X & targets[target].vehicle.getCenter().Y > Vehicle.getCenter().Y)// target bottom right
+                {
+                    if (facing > 0.25 * Math.PI)
+                    {
+                        Forward();
+                        Turnright();
+
+                    }
+                    else
+                    {
+                        Forward();
+                        Turnleft();
+                    }
+                }
+                else if (targets[target].vehicle.getCenter().X > vehicle.getCenter().X & targets[target].vehicle.getCenter().Y > Vehicle.getCenter().Y)
+                {
+                    Forward();
+                    Turnright();
+                }
+                else if (targets[target].vehicle.getCenter().X < vehicle.getCenter().X & targets[target].vehicle.getCenter().Y < Vehicle.getCenter().Y)
+                {
+                    Forward();
+                    Turnleft();
+                }
+                else
+                {
+                    // probably divide into 3
+                    Forward();
+                }
             }
 
         }
