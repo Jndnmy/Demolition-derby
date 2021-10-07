@@ -44,24 +44,24 @@ namespace Double_D
                 {
                     if (facing > 1.75 * Math.PI)
                     {
-                        Forward();// add a new method to check if should accelerate
+                        CondForward();// add a new method to check if should accelerate
                         Turnright();
 
                     }
                     else
                     {
-                        Forward();
+                        CondForward();
                         Turnleft();
                     }
                 }
                 else if (targets[target].vehicle.getCenter().X > vehicle.getCenter().X & targets[target].vehicle.getCenter().Y < Vehicle.getCenter().Y)
                 {
-                    Forward();
+                    CondForward();
                     Turnright();
                 }
                 else if (targets[target].vehicle.getCenter().X < vehicle.getCenter().X & targets[target].vehicle.getCenter().Y > Vehicle.getCenter().Y)
                 {
-                    Forward();
+                    CondForward();
                     Turnleft();
                 }
                 else
@@ -76,24 +76,25 @@ namespace Double_D
                 {
                     if (facing > 1.25 * Math.PI)
                     {
-                        Forward();
+                        CondForward();
                         Turnright();
 
                     }
                     else
                     {
-                        Forward();
+                        CondForward();
+
                         Turnleft();
                     }
                 }
                 else if (targets[target].vehicle.getCenter().X < vehicle.getCenter().X & targets[target].vehicle.getCenter().Y < Vehicle.getCenter().Y)
                 {
-                    Forward();
+                    CondForward();
                     Turnright();
                 }
                 else if (targets[target].vehicle.getCenter().X > vehicle.getCenter().X & targets[target].vehicle.getCenter().Y > Vehicle.getCenter().Y)
                 {
-                    Forward();
+                    CondForward();
                     Turnleft();
                 }
                 else
@@ -108,24 +109,24 @@ namespace Double_D
                 {
                     if (facing > 0.75 * Math.PI)
                     {
-                        Forward();
+                        CondForward();
                         Turnright();
 
                     }
                     else
                     {
-                        Forward();
+                        CondForward();
                         Turnleft();
                     }
                 }
                 else if (targets[target].vehicle.getCenter().X < vehicle.getCenter().X & targets[target].vehicle.getCenter().Y > Vehicle.getCenter().Y)
                 {
-                    Forward();
+                    CondForward();
                     Turnright();
                 }
                 else if (targets[target].vehicle.getCenter().X > vehicle.getCenter().X & targets[target].vehicle.getCenter().Y < Vehicle.getCenter().Y)
                 {
-                    Forward();
+                    CondForward();
                     Turnleft();
                 }
                 else
@@ -140,24 +141,24 @@ namespace Double_D
                 {
                     if (facing > 0.25 * Math.PI)
                     {
-                        Forward();
+                        CondForward();
                         Turnright();
 
                     }
                     else
                     {
-                        Forward();
+                        CondForward();
                         Turnleft();
                     }
                 }
                 else if (targets[target].vehicle.getCenter().X > vehicle.getCenter().X & targets[target].vehicle.getCenter().Y > Vehicle.getCenter().Y)
                 {
-                    Forward();
+                    CondForward();
                     Turnright();
                 }
                 else if (targets[target].vehicle.getCenter().X < vehicle.getCenter().X & targets[target].vehicle.getCenter().Y < Vehicle.getCenter().Y)
                 {
-                    Forward();
+                    CondForward();
                     Turnleft();
                 }
                 else
@@ -167,6 +168,15 @@ namespace Double_D
                 }
             }
 
+        }
+
+        private void CondForward()
+        {
+            if (Math.Abs(vehicle.getSpeed()) < 5)
+            {
+                Forward();
+            }
+               
         }
         public void Forward()
         {
