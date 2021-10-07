@@ -60,11 +60,11 @@ namespace Double_D
         }
         public void Forward()
         {
-            Vehicle.accelerate(1);
+            Vehicle.accelerate(-1);
         }
         public void Reverse()
         {
-            Vehicle.accelerate(-1);
+            Vehicle.accelerate(1);
         }
         public void Turnright(){
             Vehicle.turn(10, Vehicle.getCenter());
