@@ -66,7 +66,7 @@ namespace Double_D
 
         public void accelerate(int forwOrBack)//forward or backwards
         {
-            if ((speed >= 0 && (speed < maxSpeed || forwOrBack == Form1.forward) ) || (speed < 0 && (speed >= maxSpeed * -1 || forwOrBack == Form1.backward)  ))                
+            if ((speed >= 0 && (speed < maxSpeed || forwOrBack == 1) ) || (speed < 0 && (speed >= maxSpeed * -1 || forwOrBack == -1)  ))                
                 speed += (accRate + (accRate * Math.Abs(speed)))* forwOrBack;
                 
                 
