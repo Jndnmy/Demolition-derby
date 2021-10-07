@@ -14,6 +14,8 @@ namespace Double_D
 {     
     public partial class Form1 : Form
     {
+        public static int forward = -1;
+        public static int backward = 1;
         public Form1()
         {
             InitializeComponent();
@@ -46,14 +48,13 @@ namespace Double_D
         private void T_Tick(object sender, EventArgs e)
         {
             if (up == true)
-                controller[0].Forward(); //int equal to -1 or 1
+                controller[0].Vehicle.accelerate(forward); //int equal to -1 or 1
             if (down == true)
-                controller[0].Reverse();
+                controller[0].Vehicle.accelerate(backward);
             if (left == true)
-                controller[0].Turnleft();
+                ourCar.turn(-10, ourCar.getCenter());                
             if (right == true)
-                controller[0].Turnright();
-            
+                ourCar.turn(10, ourCar.getCenter());
             if (up == false && down == false)
             {
                 controller[0].Vehicle.decelerate();
