@@ -201,6 +201,10 @@ namespace Double_D
         {
             return components;
         }
+        public Double getDirection()
+        {
+            return direction;
+        }
         public Rectangle getHitbox()
         {
             return hitbox;

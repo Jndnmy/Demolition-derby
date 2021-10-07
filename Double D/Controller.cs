@@ -35,6 +35,29 @@ namespace Double_D
             }
         }
 
+        public void Move ( List<Controller> targets)
+        {
+            double facing = vehicle.getDirection();
+            if (facing > 1.5 * Math.PI)// facing top left
+            {
+                if (targets[target].vehicle.getCenter().X > vehicle.getCenter().X & targets[target].vehicle.getCenter().Y > Vehicle.getCenter().Y)// target bottom right
+                {
+                    if (facing > 1.75 * Math.PI)
+                    {
+                        Forward();
+                        Turnright();
+
+                    }
+                    else
+                    {
+                        Forward();
+                        Turnleft();
+                    }
+                }
+              //  else if (targets[target].vehicle.getCenter().X > vehicle.getCenter().X & targets[target].vehicle.getCenter().Y > Vehicle.getCenter().Y) // target
+            }
+
+        }
         public void Forward()
         {
             Vehicle.accelerate(1);
