@@ -201,6 +201,14 @@ namespace Double_D
         {
             return components;
         }
+        public float getSpeed()
+        {
+            return speed;
+        }
+        public Double getDirection()
+        {
+            return direction;
+        }
         public Rectangle getHitbox()
         {
             return hitbox;
