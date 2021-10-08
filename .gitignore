@@ -15,11 +15,6 @@
 
 # Mono auto generated files
 mono_crash.*
-/.vs
-/Double D/.vs
-/Double D/Double D/.vs
-/Double D/Double D/Double D/bin
-/Double D/Double D/Double D/obj
 
 # Build results
 [Dd]ebug/
