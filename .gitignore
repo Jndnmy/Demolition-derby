@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Double D/.vs
+/Double D/Double D/.vs
+/Double D/Double D/Double D/bin
+/Double D/Double D/Double D/obj
