@@ -45,3 +45,18 @@ C:\Users\Jason\source\repos\DoubleD\Double D\obj\Debug\netcoreapp3.1\Double D.cs
 C:\Users\Jason\source\repos\DoubleD\Double D\obj\Debug\netcoreapp3.1\Double D.dll
 C:\Users\Jason\source\repos\DoubleD\Double D\obj\Debug\netcoreapp3.1\Double D.pdb
 C:\Users\Jason\source\repos\DoubleD\Double D\obj\Debug\netcoreapp3.1\Double D.genruntimeconfig.cache
+C:\Users\Kacper\source\repos\Double D\Double D\bin\Debug\netcoreapp3.1\Double D.exe
+C:\Users\Kacper\source\repos\Double D\Double D\bin\Debug\netcoreapp3.1\Double D.deps.json
+C:\Users\Kacper\source\repos\Double D\Double D\bin\Debug\netcoreapp3.1\Double D.runtimeconfig.json
+C:\Users\Kacper\source\repos\Double D\Double D\bin\Debug\netcoreapp3.1\Double D.runtimeconfig.dev.json
+C:\Users\Kacper\source\repos\Double D\Double D\bin\Debug\netcoreapp3.1\Double D.dll
+C:\Users\Kacper\source\repos\Double D\Double D\bin\Debug\netcoreapp3.1\Double D.pdb
+C:\Users\Kacper\source\repos\Double D\Double D\obj\Debug\netcoreapp3.1\Double D.csprojAssemblyReference.cache
+C:\Users\Kacper\source\repos\Double D\Double D\obj\Debug\netcoreapp3.1\Double_D.Form1.resources
+C:\Users\Kacper\source\repos\Double D\Double D\obj\Debug\netcoreapp3.1\Double D.csproj.GenerateResource.cache
+C:\Users\Kacper\source\repos\Double D\Double D\obj\Debug\netcoreapp3.1\Double D.AssemblyInfoInputs.cache
+C:\Users\Kacper\source\repos\Double D\Double D\obj\Debug\netcoreapp3.1\Double D.AssemblyInfo.cs
+C:\Users\Kacper\source\repos\Double D\Double D\obj\Debug\netcoreapp3.1\Double D.csproj.CoreCompileInputs.cache
+C:\Users\Kacper\source\repos\Double D\Double D\obj\Debug\netcoreapp3.1\Double D.dll
+C:\Users\Kacper\source\repos\Double D\Double D\obj\Debug\netcoreapp3.1\Double D.pdb
+C:\Users\Kacper\source\repos\Double D\Double D\obj\Debug\netcoreapp3.1\Double D.genruntimeconfig.cache
