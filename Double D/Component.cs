@@ -10,10 +10,10 @@ namespace Double_D
         public Component(int x, int y, int parent, Brush colour) : base() //constructor
         {
             coordinates = new PointF[] {
-                new PointF(x - 20, y - 20),      //tl          
-                new PointF(x + 20, y - 20),      //tr          
-                new PointF(x + 20, y + 20),      //br
-                new PointF(x - 20, y + 20),     //bl 
+                new PointF(x - 10, y - 10),      //tl          
+                new PointF(x + 10, y - 10),      //tr          
+                new PointF(x + 10, y + 10),      //br
+                new PointF(x - 10, y + 10),     //bl 
             };
             id = parent;
             this.colour = colour;

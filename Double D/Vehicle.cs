@@ -36,17 +36,17 @@ namespace Double_D
             accRate = 0.15F;
             direction = 0; //facing up;
             components = new Component[] {
-                new Component(x - 20, y - 20, id, Brushes.Red),      //tl          
-                new Component(x + 20, y - 20, id, Brushes.Red),      //tr          
-                new Component(x + 20, y + 20,id, Brushes.Green),      //br
-                new Component(x - 20, y + 20,id, Brushes.Green),     //bl 
+                new Component(x - 10, y - 10, id, Brushes.Red),      //tl          
+                new Component(x + 10, y - 10, id, Brushes.Red),      //tr          
+                new Component(x + 10, y + 10,id, Brushes.Green),      //br
+                new Component(x - 10, y + 10,id, Brushes.Green),     //bl 
                 new Component(x , y,id, Brushes.Yellow),
             };
             coordinates = new PointF[] {
-                new PointF(x - 40, y - 40),      //tl          
-                new PointF(x + 40, y - 40),      //tr          
-                new PointF(x + 40, y + 40),      //br
-                new PointF(x - 40, y + 40),     //bl
+                new PointF(x - 20, y - 20),      //tl          
+                new PointF(x + 20, y - 20),      //tr          
+                new PointF(x + 20, y + 20),      //br
+                new PointF(x - 20, y + 20),     //bl
                                                 };
             centre = new PointF(x, y);
             hitbox = new Rectangle();
