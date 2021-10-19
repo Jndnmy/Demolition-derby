@@ -26,9 +26,25 @@ namespace Double_D
         //move shit
 
         //step 1- when key is held move or rotate by set degrees.
-        public Vehicle()
+        public Vehicle(int x, int y, double direction, float speed, Brush colour)
         {
-
+            this.direction = direction;
+            this.speed = speed;
+            accRate = 0.15F;
+            id = 99; 
+            components = new Component[]
+            {
+                new Component (x,y,99, colour)
+            };
+            coordinates = new PointF[] {
+                new PointF(x - 10, y - 10),      //tl          
+                new PointF(x + 10, y - 10),      //tr          
+                new PointF(x + 10, y + 10),      //br
+                new PointF(x - 10, y + 10),     //bl
+                                                };
+            centre = new PointF(x, y);
+            hitbox = new Rectangle();
+            updateHitbox();
         }
         public Vehicle(int x, int y,int id) //constructor
         {

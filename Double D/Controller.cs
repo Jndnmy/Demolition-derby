@@ -17,7 +17,7 @@ namespace Double_D
             this.Team = team;
             target = 0;
         }
-
+       
         public string Personality { get => personality; set => personality = value; }
         public int Team { get => team; set => team = value; }
         public void Newtarget(List<Controller> targets)
@@ -172,7 +172,7 @@ namespace Double_D
 
         private void CondForward()
         {
-            if (Math.Abs(vehicle.getSpeed()) < 5)
+            if (Math.Abs(vehicle.getSpeed()) < 1)
             {
                 Forward();
             }

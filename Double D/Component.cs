@@ -7,6 +7,8 @@ namespace Double_D
     class Component : Vehicle
     {
         private Brush colour;
+        private string attribute;
+        private int health;
         public Component(int x, int y, int parent, Brush colour) : base() //constructor
         {
             coordinates = new PointF[] {
