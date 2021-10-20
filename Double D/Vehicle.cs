@@ -14,7 +14,7 @@ namespace Double_D
         if w or s is pressed, acc or decc(braking)
         */
         protected PointF[] coordinates;
-        protected Component[] components;
+        protected List<Component> components;
         private PointF centre;
         private double direction; //radians
         private Rectangle hitbox;
@@ -26,13 +26,18 @@ namespace Double_D
         //move shit
 
         //step 1- when key is held move or rotate by set degrees.
-        public Vehicle(int x, int y, double direction, float speed, Brush colour)
+        public Vehicle()
         {
-            this.direction = direction;
+
+        }
+        public Vehicle(float x, float y, float speed, Brush colour)
+        {
+            Random rnd = new Random();
+            this.direction = rnd.Next(0,360) ;// randomize direction based on input
             this.speed = speed;
             accRate = 0.15F;
             id = 99; 
-            components = new Component[]
+            components = new List<Component>
             {
                 new Component (x,y,99, colour)
             };
@@ -51,7 +56,7 @@ namespace Double_D
             maxSpeed = 20;
             accRate = 0.15F;
             direction = 0; //facing up;
-            components = new Component[] {
+            components = new List<Component> {
                 new Component(x - 10, y - 10, id, Brushes.Red),      //tl          
                 new Component(x + 10, y - 10, id, Brushes.Red),      //tr          
                 new Component(x + 10, y + 10,id, Brushes.Green),      //br
@@ -73,7 +78,7 @@ namespace Double_D
             changeCoords(-Math.Sin(direction)*speed,Math.Cos(direction)*speed);
             if (components != null)
             {
-                for (int i = 0; i < components.Length; i++)
+                for (int i = 0; i < components.Count; i++)
                 {
                     components[i].changeCoords(-Math.Sin(direction) * speed, Math.Cos(direction) * speed);
                 }
@@ -96,7 +101,41 @@ namespace Double_D
            
                
         }
+        public Vehicle Shed()
+        {
+            Vehicle freecomp;
+            for (int i = 0; i < components.Count; i++)
+            {
+                if (components[i].Health == 0)
+                {
+                    freecomp = new Vehicle(components[i].Center.X, components[i].Center.Y, this.speed, components[i].Colour);
+                    components.RemoveAt(i);
+                    return freecomp;
+                }
 
+            }
+            freecomp = new Vehicle(components[0].Center.X, components[0].Center.Y, this.speed, components[0].Colour);
+            return freecomp;
+        }
+        public int componentDestroyed()
+        {
+            int destroyed = 0;
+            foreach (Component component in components)
+            {
+                if (component.Health == 0)
+                {
+                    destroyed += 1;
+                }
+            }
+            return destroyed;
+        }
+        public void selfdestruct()
+        {
+            foreach (Component component in components)
+            {
+                component.Health = 0;
+            }
+        }
         protected void updateHitbox()
         {
             float leastX = 10000f;
@@ -203,7 +242,7 @@ namespace Double_D
             updateHitbox();
             if (components != null)
             {
-                for (int i = 0; i < components.Length; i++)
+                for (int i = 0; i < components.Count; i++)
                 {
                     components[i].rotate(angle, axis);
                 }
@@ -213,7 +252,7 @@ namespace Double_D
         {
             return coordinates;
         }
-        public Component[] getComponents()
+        public List<Component> getComponents()
         {
             return components;
         }
@@ -235,7 +274,7 @@ namespace Double_D
         }
         public void draw(Graphics sG)
         {
-            for (int i = 0; i < components.Length; i++)
+            for (int i = 0; i < components.Count; i++)
             {
                 sG.FillPolygon(components[i].getColour(), components[i].getCoords());
                 sG.DrawRectangle(Pens.Black, components[i].getHitbox());
